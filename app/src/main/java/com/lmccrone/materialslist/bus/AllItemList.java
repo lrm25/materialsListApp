@@ -3,11 +3,11 @@ package com.lmccrone.materialslist.bus;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
-public class ItemList {
+public class AllItemList {
 
     private ArrayList<Item> itemList;
 
-    public ItemList() {
+    public AllItemList() {
         itemList = new ArrayList<Item>();
     }
 
@@ -30,11 +30,11 @@ public class ItemList {
         int listSize = itemList.size();
 
         if (null == item) {
-            // TODO throw exception
+            throw new ItemException("Cannot add null item");
         }
         itemName = item.getName();
         if ((null == itemName) || (itemName.isEmpty())) {
-            // TODO throw exception
+            throw new ItemException("Cannot add item without name");
         }
         // place in alphabetical order
         int itemPos = 0;

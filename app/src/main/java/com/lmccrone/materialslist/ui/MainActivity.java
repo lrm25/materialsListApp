@@ -16,16 +16,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button button = findViewById(R.id.button3);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button itemEditButton = findViewById(R.id.itemEditButton);
+        itemEditButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openItemScreen();
+            }
+        });
+
+        final Button questionEditButton = findViewById(R.id.questionEditButton);
+        questionEditButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openQuestionEditScreen();
             }
         });
     }
 
     private void openItemScreen() {
         Intent intent = new Intent(this, ItemActivity.class);
+        startActivity(intent);
+    }
+
+    private void openQuestionEditScreen() {
+        Intent intent = new Intent(this, QuestionActivity.class);
         startActivity(intent);
     }
 }

@@ -2,13 +2,13 @@ package com.lmccrone.materialslist.app;
 
 import com.lmccrone.materialslist.bus.Item;
 import com.lmccrone.materialslist.bus.ItemException;
-import com.lmccrone.materialslist.bus.ItemList;
+import com.lmccrone.materialslist.bus.AllItemList;
 
 import java.util.ArrayList;
 
 public class ItemManager {
 
-    private ItemList itemList;
+    private AllItemList itemList;
     private static ItemManager itemManager;
 
     public static ItemManager instance() {
@@ -19,7 +19,7 @@ public class ItemManager {
     }
 
     private ItemManager() {
-        itemList = new ItemList();
+        itemList = new AllItemList();
     }
 
     public void addItem(String item) throws ItemException {
@@ -27,9 +27,9 @@ public class ItemManager {
         itemList.add(new Item(item));
     }
 
-    public void deleteItem(String item) {
+    public void deleteItem(Item item) {
 
-        itemList.delete(new Item(item));
+        itemList.delete(item);
     }
 
     public ArrayList<Item> getItemList() {
