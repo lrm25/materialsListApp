@@ -26,13 +26,18 @@ public class Question {
     @Override
     public boolean equals(Object object) {
 
+        String qText;
+
         if (null == object) {
             return false;
 
         } else if (!(object instanceof Question)) {
             return false;
 
-        } else if (!text.equalsIgnoreCase(((Question)object).text)) {
+        } else if (null == (qText = ((Question)object).text)) {
+            return false;
+
+        } else if (!text.equalsIgnoreCase(qText)) {
             return false;
         }
         return true;
